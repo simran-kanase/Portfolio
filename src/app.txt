@@ -1,0 +1,51 @@
+import Home from "./components/Home"
+import Navbar from "./components/Navbar"
+
+
+function App() {
+  
+
+  return (
+    <>
+      <Navbar />
+      <Home />
+    </>
+  )
+}
+
+export default App
+
+
+
+
+
+home.jsx
+
+ 
+
+
+const Home = () => {
+  return (
+    <div>
+      <div className="flex w-screen min-h-screen gap-2 p-1" >
+        {/* Left side */}
+        <div className="flex flex-col basis-[50%] items-center mt-40"  >
+            <h1 className="text-4xl font-bold text-gray-800"  >Hi, I am Simran</h1>
+            <p className="mt-12 text-lg text-gray-600" >
+            I am a passionate  web developer skilled in React, Tailwind CSS, and modern web development. I love building interactive, user-friendly applications.
+            </p>
+
+            <a href="../assets/resume.pdf" download className="bg-[#FCBF49] text-black px-6 py-3 mt-3 rounded-md font-semibold hover:bg-[#ffdb87] transition">Download Resume</a>
+            
+        </div>
+
+        {/* right side */}
+        <div className =  "flex basis-[50%] border-black" >
+            
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Home;

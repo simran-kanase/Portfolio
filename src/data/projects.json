@@ -1,0 +1,22 @@
+[
+    {
+      "title": "Rock Paper Scissor",
+      "description": "A simple game where players choose rock, paper, or scissors and compete against the computer",
+      "image": "rock paper",
+      "github": "https://github.com/simran-kanase/Stone-paper-scissor-usinh-JS"
+    },
+    {
+        "title": "Age Calculator",
+        "description": " A tool that calculates a person's age based on their birthdate",
+        "image": "Age calculator",
+        "github": "https://github.com/simran-kanase/age-calculator"
+      },
+    {
+      "title": "To do list ",
+      "description": "A task management app to create, edit, and track your daily to-dos",
+      "image": "to do list",
+      "github": "https://github.com/simran-kanase/to-do-list-by-using-react-js"
+    }
+    
+  ]
+  

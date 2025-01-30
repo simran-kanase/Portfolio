@@ -1,0 +1,77 @@
+import { useEffect, useRef } from "react";
+
+const Project = ({ projects }) => {
+  const lineRef = useRef(null);
+  const projectLineRefs = useRef([]);
+
+  useEffect(() => {
+    const verticalLine = lineRef.current;
+    const lineElements = projectLineRefs.current;
+
+    // Animate the vertical center line
+    verticalLine.style.height = "0";
+    setTimeout(() => {
+      verticalLine.style.transition = "height 1.8s ease-in-out";
+      verticalLine.style.height = "100%";
+    }, 100);
+
+    // Animate the lines connecting to the projects
+    lineElements.forEach((line, index) => {
+      const isLeft = index % 2 === 1;
+
+      setTimeout(() => {
+        line.style.transition = "width 1.2s ease-in-out, transform 1.2s ease-in-out";
+        line.style.width = "16.5%"; // Adjust width for responsiveness
+        line.style.transform = "translateX(0)"; // Final state
+      }, 1600 + index * 400);
+    });
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-[#FCC6FF] via-[#FFDAB3] to-[#FFE6C9] flex items-center justify-center p-4">
+      <div className="relative flex flex-col items-center w-full max-w-4xl">
+        {/* Vertical Center Line */}
+        <div
+          ref={lineRef}
+          className="absolute top-0 w-1 transform -translate-x-1/2 bg-gray-800 left-1/2"
+        ></div>
+
+        {projects.map((project, index) => {
+          const isLeft = index % 2 === 1; // Alternate left and right
+          return (
+            <div
+              key={index}
+              className={`relative flex flex-col ${
+                isLeft ? "items-start" : "items-end"
+              } w-full mb-16`}
+            >
+              {/* Line connecting to project */}
+              <div
+                className={`absolute h-1 bg-gray-800`}
+                style={{
+                  top: "50%",
+                  left: isLeft ? "auto" : "50%",
+                  right: isLeft ? "50%" : "auto",
+                  width: "0", // Start width for animation
+                  transformOrigin: isLeft ? "right" : "left",
+                }}
+                ref={(el) => (projectLineRefs.current[index] = el)}
+              ></div>
+              {/* Project div */}
+              <div
+                className={`w-1/3 p-6 rounded-lg shadow-lg bg-gray-100 ${
+                  isLeft ? "text-right" : "text-left"
+                }`}
+              >
+                <h2 className="text-2xl font-bold">{project.title}</h2>
+                <p className="mt-2 text-gray-600">{project.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default Project;
