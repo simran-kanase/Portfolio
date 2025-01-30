@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import { FaUser, FaEnvelope, FaPhone, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaUser, FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Contact = () => {
   const form = useRef();
